@@ -104,7 +104,7 @@ const TypicalForm = () => {
           }}
           maxLength={12} // Prevents excessive input
         />
-        <label>Mobile Name</label>
+        <label>Mobile Number</label>
         <p>{errors.mobile?.message}</p>
       </div>
 
