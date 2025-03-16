@@ -70,7 +70,7 @@ const TypicalForm = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       CustomerName: "kaleem",
-      mobile: "416 - 988 - 7294",
+      mobile: "416-988-7294",
     },
   });
 
