@@ -16,7 +16,6 @@ const TypicalForm = () => {
       .string()
       .matches(phoneRegExp, "Invalid Canadian mobile number format")
       .required("Mobile number is required"),
-    email: yup.string().required("Email address is required"),
   });
 
   // const validateFormData = () => {
@@ -72,7 +71,6 @@ const TypicalForm = () => {
     defaultValues: {
       CustomerName: "kaleem",
       mobile: "416-988-7294",
-      email: "kaleemullah19@gmail.com",
     },
   });
 
@@ -110,18 +108,6 @@ const TypicalForm = () => {
         <p>{errors.mobile?.message}</p>
       </div>
 
-      <div className="form-floating mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="email"
-          name="email"
-          {...register("email")}
-          maxLength={12} // Prevents excessive input
-        />
-        <label>Email</label>
-        <p>{errors.email?.message}</p>
-      </div>
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
