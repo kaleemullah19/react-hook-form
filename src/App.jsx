@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import FoodDeliveryForm from "./FoodDeliveryForm";
 import TypicalForm from "./TypicalForm";
@@ -10,7 +11,7 @@ function App() {
       <div className="container">
         {/* <div className="mx-5"></div>
         <FoodDeliveryForm /> */}
-        <Swr></Swr>
+        {/* <Swr></Swr> */}
         {/* <SwrPost></SwrPost> */}
         {<TypicalForm></TypicalForm>}
       </div>
