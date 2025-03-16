@@ -1,6 +1,6 @@
 import "./App.css";
 import FoodDeliveryForm from "./FoodDeliveryForm";
-import TypicalForm from "./typicalForm";
+import TypicalForm from "./TypicalForm";
 import Swr from "./Swr";
 import SwrPost from "./SwrPost";
 
