@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { GetRenderCount } from "./Utils/UseRenderCount";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
 const RenderCount = GetRenderCount();
 const TypicalForm = () => {
   // const [values, setValues] = useState({ CustomerName: "", mobile: "" });
@@ -10,10 +10,10 @@ const TypicalForm = () => {
   // const [FormError, setErrors] = useState({ CustomerName: "", mobile: "" });
 
   // const phoneRegExp = /^(\+1[-.\s]?)?(\(?\d{3}\)?[-.\s]?)\d{3}[-.\s]?\d{4}$/;
-  const schema = yup.object({
-    CustomerName: yup.string().required("Customer Name is required"),
-    mobile: yup.string().required("Mobile number is required"),
-  });
+  // const schema = yup.object({
+  //   CustomerName: yup.string().required("Customer Name is required"),
+  //   mobile: yup.string().required("Mobile number is required"),
+  // });
 
   // const validateFormData = () => {
   //   let TempErrors = {
