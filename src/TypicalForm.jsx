@@ -10,15 +10,9 @@ const TypicalForm = () => {
   // const [FormError, setErrors] = useState({ CustomerName: "", mobile: "" });
 
   // const phoneRegExp = /^(\+1[-.\s]?)?(\(?\d{3}\)?[-.\s]?)\d{3}[-.\s]?\d{4}$/;
-  const schema = yup.object().shape({
+  const schema = yup.object({
     CustomerName: yup.string().required("Customer Name is required"),
-    mobile: yup
-      .string()
-      .matches(
-        /^(\+1[-.\s]?)?(\(?\d{3}\)?[-.\s]?)\d{3}[-.\s]?\d{4}$/,
-        "Mobile number is not valid"
-      )
-      .required("Mobile number is required"),
+    mobile: yup.string().required("Mobile number is required"),
   });
 
   // const validateFormData = () => {
@@ -54,7 +48,7 @@ const TypicalForm = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       CustomerName: "kaleem",
-      mobile: "416-988-7294",
+      mobile: "",
     },
   });
 
