@@ -45,7 +45,6 @@ const TypicalForm = () => {
     formState: { errors },
     watch,
   } = useForm({
-    resolver: yupResolver(schema),
     defaultValues: {
       CustomerName: "kaleem",
       mobile: "",
