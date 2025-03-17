@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { GetRenderCount } from "./Utils/UseRenderCount";
+import GetRenderCount from "./Utils/UseRenderCount";
 
-const RenderCount = GetRenderCount();
 const FoodDeliveryForm = () => {
   const [disabled, setDisabled] = useState(false);
   const { register, handleSubmit, formState, control } = useForm({
@@ -32,7 +31,7 @@ const FoodDeliveryForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit, onError)}>
-      <RenderCount />
+      <GetRenderCount />
       <div className="row mb-2">
         <div className="col">
           {" "}
