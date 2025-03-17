@@ -60,7 +60,9 @@ const TypicalForm = () => {
           className="form-control"
           placeholder="customer name"
           name="CustomerName"
-          {...register("CustomerName")}
+          {...register("CustomerName", {
+            required: "CustomerName is required",
+          })}
         />
 
         <label>Customer Name</label>
@@ -72,7 +74,13 @@ const TypicalForm = () => {
           className="form-control"
           placeholder="mobile"
           name="mobile"
-          {...register("mobile")}
+          {...register("mobile", {
+            required: "Mobile is required",
+            minLength: {
+              value: 10,
+              message: "Mobile number must be at least 10 characters long!",
+            },
+          })}
         />
         <label>Mobile Number</label>
         <p>{errors.mobile?.message}</p>
