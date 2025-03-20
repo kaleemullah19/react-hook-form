@@ -20,6 +20,7 @@ const RRSPWithdrawalForm = () => {
   });
 
   const fromAccountValue = watch("fromAccount");
+  const toAccountValue = watch("toAccount");
   const fullWithdrawal = watch("fullWithdrawal");
   const enteredAmount = watch("amount");
 
@@ -41,12 +42,18 @@ const RRSPWithdrawalForm = () => {
 
     if (isChecked && fromAccountValue) {
       setValue("amount", accountBalances[fromAccountValue]?.balance || "");
+      setValue("taxOption", ""); // Remove Before/After Tax selection from submission
     } else {
       setValue("amount", "");
     }
   };
 
   const onSubmit = (data) => {
+    // Remove taxOption from submission if Full Withdrawal is selected
+    if (data.fullWithdrawal) {
+      delete data.taxOption;
+    }
+
     // Validate if amount is greater than available balance
     if (
       !fullWithdrawal &&
@@ -58,6 +65,7 @@ const RRSPWithdrawalForm = () => {
       );
       return;
     }
+
     console.log("Submitted Data:", data);
   };
 
@@ -85,6 +93,7 @@ const RRSPWithdrawalForm = () => {
                   accountBalances[selectedAccount]?.balance || ""
                 );
               }
+              setValue("toAccount", ""); // Reset To Account when From Account changes
             }}
           >
             <option value="">Select RRSP Account</option>
@@ -99,7 +108,7 @@ const RRSPWithdrawalForm = () => {
           )}
         </div>
 
-        {/* TO ACCOUNT (Now displays account number and balance) */}
+        {/* TO ACCOUNT (Disabled until From Account is selected) */}
         <div className="mb-3">
           <label className="form-label">To Account (Non-RRSP)</label>
           <select
@@ -107,6 +116,7 @@ const RRSPWithdrawalForm = () => {
             {...register("toAccount", {
               required: "Select a non-RRSP account",
             })}
+            disabled={!fromAccountValue} // Disabled unless From Account is selected
           >
             <option value="">Select To Account</option>
             {Object.entries(nonRRSPAccounts).map(([key, acc]) => (
@@ -155,7 +165,7 @@ const RRSPWithdrawalForm = () => {
           <label className="form-check-label">Full Amount Withdrawal</label>
         </div>
 
-        {/* PARTIAL WITHDRAWAL OPTIONS (Hidden if Full Withdrawal is checked) */}
+        {/* PARTIAL WITHDRAWAL OPTIONS (Hidden & Removed from Submission if Full Withdrawal is checked) */}
         {!fullWithdrawal && (
           <div className="mb-3">
             <strong>Choose Withdrawal Type:</strong>
