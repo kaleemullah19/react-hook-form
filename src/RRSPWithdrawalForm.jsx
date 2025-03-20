@@ -20,9 +20,7 @@ const RRSPWithdrawalForm = () => {
   });
 
   const fromAccountValue = watch("fromAccount");
-  const toAccountValue = watch("toAccount");
   const fullWithdrawal = watch("fullWithdrawal");
-  const enteredAmount = watch("amount");
 
   // Simulated Account Data
   const accountBalances = {
