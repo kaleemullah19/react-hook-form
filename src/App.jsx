@@ -4,6 +4,7 @@ import FoodDeliveryForm from "./FoodDeliveryForm";
 import TypicalForm from "./TypicalForm";
 import Swr from "./Swr";
 import SwrPost from "./SwrPost";
+import RRSPWithdrawalForm from "./RRSPWithdrawalForm";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <FoodDeliveryForm /> */}
         {/* <Swr></Swr> */}
         {/* <SwrPost></SwrPost> */}
-        {<TypicalForm></TypicalForm>}
+        {/* {<TypicalForm></TypicalForm>} */}
+        <RRSPWithdrawalForm />
       </div>
     </>
   );
